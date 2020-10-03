@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link href="/static/css/styles.css" rel="stylesheet" />
+    <script src="/static/js/alert-box.js"></script>
+</head>
+
+<body>
+
+    <div class="nav-bar">
+        <div class="nav-bar-content left">
+            <img src="{{avatar}}" alt="avatar" class="circle">
+        </div>
+        <div class="nav-bar-content">
+            <div class="nav-bar-controls">
+                <label class="nav-bar-name">{{name}}</label>
+                <a class="logout" href="/auth/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label class="chooser-text">File</label>
+            <input type="file" class="choose" required name="file_upload">
+            <button type="submit" class="upload-file">Upload To Google Drive</button>
+        </form>
+
+        <div class="alert-message">
+            {% if (file == "uploaded") %}
+            <div class="success"  id="alert">
+                <span class="closebtn" onclick="closeAlert()">&times;</span>
+                <strong>Success!</strong> File uploaded to google drive successfully.
+            </div>
+            {% elif (file == "notuploaded") %}
+            <div class="alert" id="alert" >
+                <span class="closebtn" onclick="closeAlert()">&times;</span>
+                <strong>Error!</strong> Something went wrong while uploading the file.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>
