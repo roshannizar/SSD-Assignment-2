@@ -8,4 +8,4 @@ Step One: Install the dependencies
 
 Step Two: To run the application
 
-```npm run dev```
+```npm run dev``` or ```npm run prod```
